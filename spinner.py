@@ -4,6 +4,21 @@ from sys import argv
 from string import ascii_uppercase as l
 from random import choice, randrange
 
+import shell
+
+
+IFLST = [
+ "if {} < {}:",
+ "",
+ "?{}={}",
+ "?{}!{}"
+]
+
+CMDLST = [
+ ">{}",
+ "<{}"
+]
+
 BOX = "box/"
 if len(argv) < 2:
  SNAILCOUNT = 8
@@ -24,6 +39,14 @@ def getsnaillist():
 def quickname():
  return "".join([choice(l) for _ in range(8)])
 
+def rngmacro():
+ global IFLST, CMDLST
+
+ macro = {}
+ 
+ for _ in range(32):
+  macro[choice(IFLST).for]
+
 def shell():
  shell = {
   'name': quickname(),
@@ -32,7 +55,7 @@ def shell():
    'filedir': ""
   },
   'macro': {},
-  'mem': [0 for _ in range(128)]
+  'mem': [randrange(512) for _ in range(16)]
  }
 
  return shell
